@@ -31,4 +31,6 @@ export interface CustomEditorProps {
   toolbarStyle?: string
   toolbarItemStyle?: string
   toolbarItemActiveStyle?: string
+  value?: EditorState
+  onChange?: (v: EditorState) => void
 }

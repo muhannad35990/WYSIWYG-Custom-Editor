@@ -15,7 +15,7 @@ const Toolbar: FC<ToolbarType> = ({
   return (
     <div
       className={cn(
-        "flex items-center gap-1 bg-slate-200 py-1 px-2 rounded-t-lg",
+        "flex items-center gap-1 bg-slate-200 py-1 px-2 rounded-t-lg shadow",
         toolbarStyle
       )}
     >

@@ -14,16 +14,22 @@ const CustomEditor: FC<CustomEditorProps> = ({
   style,
   toolbarStyle,
   toolbarItemStyle,
-  toolbarItemActiveStyle
+  toolbarItemActiveStyle,
+  value,
+  onChange
 }): ReactElement => {
-  const [editorState, setEditorState] = useState<EditorState>(() =>
-    EditorState.createEmpty()
+  const [editorState, setEditorState] = useState<EditorState>(
+    () => value ?? EditorState.createEmpty()
   )
   const [editorLoaded, setEditorLoaded] = useState<boolean>(false)
 
   useEffect(() => {
     setEditorLoaded(true)
   }, [])
+
+  useEffect(() => {
+    if (onChange) onChange(editorState)
+  }, [editorState])
 
   return (
     <div>
