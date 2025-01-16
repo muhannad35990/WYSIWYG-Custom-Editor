@@ -27,7 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/__tests__/ToolbarItem.js"
+    "__tests__/ToolbarItem.test.js",
+    "jest.config.js"
   ],
   "exclude": ["node_modules"]
 }
