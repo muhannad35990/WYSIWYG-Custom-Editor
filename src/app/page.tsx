@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 import { useState } from "react"
 import CustomEditor from "../components/CustomEditor"
+
 import {
   ContentState,
   convertFromHTML,
@@ -10,7 +12,7 @@ import {
 } from "draft-js"
 
 export default function Home() {
-  var overview = "<u>this is my text in Controlled mode</u>"
+  const overview = "<u>this is my text in Controlled mode</u>"
   const blocksFromHTML = convertFromHTML(overview)
   const contentDataState = ContentState.createFromBlockArray(
     blocksFromHTML.contentBlocks,
@@ -29,7 +31,7 @@ export default function Home() {
   )
 
   const GenerateRandomContent = () => {
-    var random =
+    const random =
       "<p>Lorem ipsum is a <b>dummy</b> or placeholder text commonly used in graphic design, publishing, and web development to fill empty spaces in a layout/p>"
     const blocksFromHTML = convertFromHTML(random)
     const contentDataState = ContentState.createFromBlockArray(

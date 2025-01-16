@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import { FC, ReactElement, useEffect } from "react"
 import { useState } from "react"
@@ -60,7 +61,7 @@ const CustomEditor: FC<CustomEditorProps> = ({
         >
           <Editor
             editorState={editorState}
-            onChange={(e: any) => setEditorState(e)}
+            onChange={(e: EditorState) => setEditorState(e)}
           />
         </div>
       ) : (
