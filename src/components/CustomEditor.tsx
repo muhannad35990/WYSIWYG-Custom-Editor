@@ -31,6 +31,10 @@ const CustomEditor: FC<CustomEditorProps> = ({
     if (onChange) onChange(editorState)
   }, [editorState])
 
+  useEffect(() => {
+    if (value) setEditorState(value)
+  }, [value])
+
   return (
     <div>
       {renderToolbar ? (
