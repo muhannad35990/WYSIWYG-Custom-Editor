@@ -1,79 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
-import { useState } from "react"
 import CustomEditor from "../components/CustomEditor"
-
-import {
-  ContentState,
-  convertFromHTML,
-  convertFromRaw,
-  convertToRaw,
-  EditorState
-} from "draft-js"
+import useEditor from "@/hooks/useEditor"
 
 export default function Home() {
-  const overview = "<u>this is my text in Controlled mode</u>"
-  const blocksFromHTML = convertFromHTML(overview)
-  const contentDataState = ContentState.createFromBlockArray(
-    blocksFromHTML.contentBlocks,
-    blocksFromHTML.entityMap
-  )
-  const editorDataState = EditorState.createWithContent(contentDataState)
-  const [editorState, setEditorState] = useState(editorDataState)
-  const [savedState, setSavedState] = useState("")
-
-  const onEditorStateChange = (editorStateData: EditorState) => {
-    setEditorState(editorStateData)
-  }
-  console.log(
-    "editor stat",
-    JSON.stringify(convertToRaw(editorState.getCurrentContent()))
-  )
-
-  const GenerateRandomContent = () => {
-    const random =
-      "<p>Lorem ipsum is a <b>dummy</b> or placeholder text commonly used in graphic design, publishing, and web development to fill empty spaces in a layout/p>"
-    const blocksFromHTML = convertFromHTML(random)
-    const contentDataState = ContentState.createFromBlockArray(
-      blocksFromHTML.contentBlocks,
-      blocksFromHTML.entityMap
-    )
-    const editorDataState = EditorState.createWithContent(contentDataState)
-    setEditorState(editorDataState)
-  }
-
-  const sendToApi = async () => {
-    const content = JSON.stringify(
-      convertToRaw(editorState.getCurrentContent())
-    )
-    setSavedState(content)
-    const response = await fetch("/api/post", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: content
-    })
-
-    setEditorState(EditorState.createEmpty())
-  }
-
-  const LoadContentFromApi = async () => {
-    const content = JSON.stringify(
-      convertToRaw(editorState.getCurrentContent())
-    )
-    setSavedState(content)
-    const response = await fetch("/api/read", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-
-    const newState: ContentState = convertFromRaw(JSON.parse(savedState))
-    setEditorState(EditorState.createWithContent(newState))
-  }
-
+  const {
+    editorState,
+    LoadContentFromApi,
+    sendToApi,
+    GenerateRandomContent,
+    onEditorStateChange
+  } = useEditor()
   return (
     <div className="w-4/5 m-10">
       <h2 className="font-bold text-blue-600 mb-4 underline text-lg">
