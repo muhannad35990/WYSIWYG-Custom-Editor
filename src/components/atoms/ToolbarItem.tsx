@@ -1,5 +1,5 @@
 import { FC, ReactElement } from "react"
-import { ToolbarItemProps } from "../../types"
+import { ToolbarItemProps } from "../../../types"
 import { RichUtils } from "draft-js"
 import { cn } from "@/lib/util"
 

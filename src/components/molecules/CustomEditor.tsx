@@ -4,10 +4,11 @@ import { FC, ReactElement, useEffect } from "react"
 import { useState } from "react"
 import { Editor, EditorState } from "draft-js"
 import "draft-js/dist/Draft.css"
+
+import { cn } from "@/lib/util"
+import { CustomEditorProps } from "../../../types"
 import Toolbar from "./Toolbar"
 import toolbarItems from "./toolbatItems"
-import { CustomEditorProps } from "../../types"
-import { cn } from "@/lib/util"
 
 const CustomEditor: FC<CustomEditorProps> = ({
   renderToolbar,

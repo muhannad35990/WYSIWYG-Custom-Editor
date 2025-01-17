@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react"
-import { ToolbarItemType, ToolbarType } from "../../types"
-import ToolbarItem from "./ToolbarItem"
+import { ToolbarItemType, ToolbarType } from "../../../types"
+import ToolbarItem from "../atoms/ToolbarItem"
 import { cn } from "@/lib/util"
 
 const Toolbar: FC<ToolbarType> = ({

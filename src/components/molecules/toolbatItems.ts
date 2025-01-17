@@ -1,4 +1,4 @@
-import { ToolbarItemType } from "./../../types"
+import { ToolbarItemType } from "../../../types"
 
 const toolbarItems: ToolbarItemType[] = [
   { label: "B", style: "BOLD" },

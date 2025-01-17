@@ -34,3 +34,8 @@ export interface CustomEditorProps {
   value?: EditorState
   onChange?: (v: EditorState) => void
 }
+
+export interface CustomButtonProps {
+  title: string
+  onClick: () => void
+}
